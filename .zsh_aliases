@@ -1,0 +1,144 @@
+# makes wget save filename as recommended by the server
+alias wget="wget --content-disposition"
+
+# typo correction
+alias nivm="nvim"
+
+# python aliases
+alias py="python3"
+alias pypy="pypy3"
+alias ipy="ipython3"
+
+# make `sl` less painful
+alias sl="sl -ae"
+
+# dotfiles management using a bare git repo
+# https://github.com/anandpiyer/.dotfiles/blob/master/.dotfiles/README.md
+# https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles/
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# graphomata game https://graphomata.com/game
+# ln -s /home/aks/codin/probe/Graphomata/Graphomata_linux64_v0.9.38.34/Graphomata "/home/aks/.local/bin/graph"
+
+# logisim aliases (CSO211)
+alias logi="java -jar ~/Tools/logisim/logisim-generic-2.7.1.jar"
+alias logidark="java -jar ~/Tools/logisim/logisim-dark-generic-0.9.10.jar"
+
+# nand-2-tetris aliases
+alias hwsimul="/home/aks/codin/random_stuff/nand_2_tetris/nand2tetris/tools/HardwareSimulator.sh"
+alias cpusimul="/home/aks/codin/random_stuff/nand_2_tetris/nand2tetris/tools/CPUEmulator.sh"
+
+# MIPS "ide" https://github.com/dpetersanderson/MARS/releases/tag/v.4.5.1
+alias mars="java -jar ~/Tools/MARS/Mars4_5.jar"
+
+# ctf etc aliases
+alias cyberchef="firefox --new-window  ~/Tools/CyberChef/*.html"
+alias pwn_college="TERM=xterm-256color ssh -i ~/.ssh/id_ed25519 hacker@dojo.pwn.college"
+alias tryhackme="echo -e '\033[48;2;255;219;21m\033[38;2;0;0;255m******************************************************************\n* ensure that mobile hotspot is connected, then the switch trick *\n******************************************************************\033[m';sudo openvpn ~/codin/infosec/ctf/tryhackme/rasimhankunrava.ovpn"
+
+# corewars pmars alias
+alias pmars='/home/aks/random/pmars_core_wars/pmars-0.9.4/src/pmars'
+
+# alias for browser-sync (with p5.js)
+alias bs='browser-sync start --server --files "*.js, *.html, *.css"'
+
+# use kitty's kitten for ssh (mostly added as a reminder that this feature exists)
+alias sshk='kitten ssh'
+alias icat='kitten icat'
+
+#  cd into a tempdir
+alias ctemp='cd $(mktemp -d)'
+
+######### fg-bg toggle via c-z ##########
+# <c-z> toggles between fg and bg
+function fg-bg {
+    if [[ $#BUFFER -eq 0 ]]; then
+        BUFFER=fg       # if the command buffer is empty, then replace the command
+	                # with `fg`
+        zle accept-line # run the command
+    else
+        zle push-input # else simply push the command to the stack 
+    fi
+}
+zle -N fg-bg # create a new zsh widget namded fg-bg
+bindkey '^z' fg-bg
+#########################################
+
+mcd()
+{
+	 test -d "$1" || mkdir "$1" && cd "$1"
+}
+
+submit_imaginary()
+{
+	echo "Submitting $1"
+	curl -iL \
+    	 -H "Content-Type: application/json" \
+     	-d "{\"flag\": \"$1\"}" \
+     	"https://imaginaryctf.org/api/flags/submit?apikey=$imaginary_api_key"
+
+}
+
+
+contest()
+{
+    cd ~/codin/cp/codeforces
+	echo "reached the codeforces directory" 
+	
+	if [[ "$1" -ne 0 ]]
+		then
+		echo "making contest $1 folder"
+		mcd "$1"
+		nvim 
+	fi
+	
+}
+ctf()
+{
+	cd ~/codin/infosec/ctf
+	
+	if [[ -n  "$1" ]]
+		then
+		mcd "$1"
+		mkdir "crypto" "pwn" "rev" "foren" "web" "misc" "osint"
+		ls
+	fi
+}
+
+# use neovim as a manpager
+# NOTE: after reinstalling ubuntu22, using MANPAGER='nvim +Man!' has stopped working
+# temporary fix until i get around to fixing it
+# probably by building nvim from source instead of using a snap package
+# NOTE: Fixed it by not using the snap package
+# man() {
+#      nvim "+hide Man $1"
+# }
+# compdef _man man
+
+mksession()
+{
+    # https://github.com/dflock/kitty-save-session
+    # also use this patch: https://github.com/RanzQ/kitty-save-session/blob/main/kitty-convert-dump.py
+    # ln -s $PWD/kitty-convert-dump.py ~/.local/bin
+ 
+    tmpdir=$(mktemp -d)
+    session_file=~/kitty-session.kitty
+    kitty @ ls > $tmpdir/kitty-dump.json && echo "# Created at: $(date)\n" > $session_file
+    cat $tmpdir/kitty-dump.json | kitty-convert-dump.py >> $session_file
+}
+
+loadsession()
+{
+    # idiom: `loadsession && exit`
+    session_file=~/kitty-session.kitty
+    if [[ -f $session_file ]]; then
+	echo "> Loading session from $session_file"
+	kitty --session $session_file -1
+	echo "can safely kill this window"
+	return 0
+    fi
+    echo "session file not found at $session_file"
+    echo "use `mksession` to save session"
+    return 1
+}
+
