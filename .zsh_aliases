@@ -1,5 +1,5 @@
 # makes wget save filename as recommended by the server
-alias wget="wget --content-disposition"
+alias wget="wget --content-disposition --trust-server-names"
 
 # typo correction
 alias nivm="nvim"
@@ -12,10 +12,14 @@ alias ipy="ipython3"
 # make `sl` less painful
 alias sl="sl -ae"
 
+# lazygit
+alias lz='lazygit'
+
 # dotfiles management using a bare git repo
 # https://github.com/anandpiyer/.dotfiles/blob/master/.dotfiles/README.md
 # https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles/
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotsl='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # graphomata game https://graphomata.com/game
 # ln -s /home/aks/codin/probe/Graphomata/Graphomata_linux64_v0.9.38.34/Graphomata "/home/aks/.local/bin/graph"
