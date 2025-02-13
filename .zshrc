@@ -122,11 +122,14 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive tab
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=2000
+setopt append_history	      # append history instead of overwrite, so that 
+			      # parallel zsh sessions can use it
+ 
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
-#setopt share_history         # share command history data
+setopt share_history          # share command history data among instances
 
 # force zsh to show the complete history
 alias history="history 0"
