@@ -9,14 +9,14 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 dots config --local status.showUntrackedFiles no
 dots remote add origin git@github.com:JustAnAverageGuy/.dotfiles.git
 ```
-You'll need to change the remote URL to your git repo. You should also add the `dotfiles` alias command to your `.bashrc` or  `.zshrc`. Now, you can use the `dotfiles` command to do git operation from anywhere in your $HOME directory:
+You'll need to change the remote URL to your git repo. You should also add the `dots` alias command to your `.bashrc` or  `.zshrc`. Now, you can use the `dots` command to do git operation from anywhere in your $HOME directory:
 
 ### Operations
 ```
 cd $HOME
-dotfiles add .tmux.conf
-dotfiles commit -m "Add .tmux.conf"
-dotfiles push
+dots add .tmux.conf
+dots commit -m "Add .tmux.conf"
+dots push
 ```
 ## New machine setup
 To set up a new machine, clone the repo to a temporary directory. This is because you might have some default config files in your $HOME which will cause a normal clone to fail.
