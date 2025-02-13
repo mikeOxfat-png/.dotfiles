@@ -25,3 +25,11 @@ git clone --separate-git-dir=$HOME/.dotfiles https://github.com/JustAnAverageGuy
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 ```
+
+> [!NOTE]
+> Currently not added neovim config, fetch it separately from <https://github.com/JustAnAverageGuy/kickstart.nvim>
+
+
+> [!TODO]
+> add neovim config as a submodule to this
+> read up on <https://git-scm.com/book/en/v2/Git-Tools-Submodules>
