@@ -11,6 +11,7 @@ export MANPAGER='nvim +Man!'
 export PATH=$PATH:~/.local/bin 
 export DOWN="$HOME/Downloads/"
 export DWON="$HOME/Downloads/" # typo proofing
+export SCROT="$HOME/Pictures/Screenshots/"
 export VISUAL='nvim'
 export EDITOR='nvim'
 export MANPAGER="nvim +Man!"
@@ -19,8 +20,10 @@ export MANPAGER="nvim +Man!"
 export ZSHZ_EXCLUDE_DIRS="/home/aks/.config/aoc_helper"
 export ZSHZ_CASE="smart"
 
+
 # export SPRING_HOME="/home/aks/codin/cso_assignments/cse361/project/spring_boot_cli/spring-3.3.4"
 # export PATH="$PATH:$SPRING_HOME/bin"
+
 # https://github.com/dflock/kitty-save-session
 # ln -s $PWD/kitty-convert-dump.py ~/.local/bin
 # also use this patch: https://github.com/RanzQ/kitty-save-session/blob/main/kitty-convert-dump.py
