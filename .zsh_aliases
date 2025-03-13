@@ -125,7 +125,7 @@ mksession()
     # also use this patch: https://github.com/RanzQ/kitty-save-session/blob/main/kitty-convert-dump.py
     # ln -s $PWD/kitty-convert-dump.py ~/.local/bin
  
-    tmpdir=$(mktemp -d)
+    tmpdir=$(mktemp --tmpdir -d kitty-converter-dump.XXXXX)
     session_file=~/kitty-session.kitty
     kitty @ ls > $tmpdir/kitty-dump.json && echo "# Created at: $(date)\n" > $session_file
     cat $tmpdir/kitty-dump.json | kitty-convert-dump.py >> $session_file
