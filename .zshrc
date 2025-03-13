@@ -348,3 +348,9 @@ nvm(){
 alias nvim='PATH="/home/aks/.nvm/versions/node/v20.18.0/bin:$PATH" nvim'
 # <<< NVM configuration <<<
 
+quote_rainbow() {
+# sudo apt install fortune-mod cowsay lolcat
+fortune | cowsay -f stegosaurus | lolcat
+}
+
+quote_rainbow
