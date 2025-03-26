@@ -2,6 +2,7 @@ export QT_INSTALL="/home/aks/.quicktest"
 export PATH="$PATH:$QT_INSTALL/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # export LC_ALL="en_US.UTF-8"
 # export LC_CTYPE="en_US.UTF-8"

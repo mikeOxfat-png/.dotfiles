@@ -120,3 +120,4 @@ export QT_INSTALL="/home/aks/.quicktest"
 
 export PATH="$QT_INSTALL/bin:$PATH"
 
+. "$HOME/.cargo/env"
