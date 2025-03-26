@@ -15,6 +15,16 @@ alias sl="sl -ae"
 # lazygit
 alias lz='lazygit'
 
+# aliases related to platform IO (during BTP)
+
+alias mon0='pio device monitor -p /dev/ttyUSB0'
+alias mon1='pio device monitor -p /dev/ttyUSB1'
+alias mon2='pio device monitor -p /dev/ttyUSB2'
+
+alias up0='pio run -t upload --upload-port /dev/ttyUSB0'
+alias up1='pio run -t upload --upload-port /dev/ttyUSB1'
+alias up2='pio run -t upload --upload-port /dev/ttyUSB2'
+
 # dotfiles management using a bare git repo
 # https://github.com/anandpiyer/.dotfiles/blob/master/.dotfiles/README.md
 # https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles/
@@ -146,3 +156,4 @@ loadsession()
     return 1
 }
 
+# vim: nowrap
