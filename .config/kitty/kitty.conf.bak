@@ -1,8 +1,0 @@
-# BEGIN_KITTY_THEME
-# Adwaita darker
-include current-theme.conf
-# END_KITTY_THEME
-
-# BEGIN_KITTY_FONT
-include current-font.conf
-# END_KITTY_FONT
