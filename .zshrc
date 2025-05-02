@@ -90,6 +90,30 @@ done
 autoload -Uz run-help-git # see man zshcontrib->other functions -> run-help
 bindkey -M vicmd 'K' run-help
 
+# space in command mode opens the command in $EDITOR
+# https://unix.stackexchange.com/questions/6620/how-to-edit-command-line-in-full-screen-editor-in-zsh#comment8172_6622
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd ' ' edit-command-line
+
+# man zshcontrib(1) /incarg
+# https://github.com/zsh-users/zsh/blob/master/Functions/Zle/incarg
+# ^A to increment integer on the line, use arg to increment by something other than one
+
+# NOTE: currently only CTRL-A works, that also not the vim variant, since the shell version is
+# zsh 5.8.1, whereas these improvements were added in zsh 5.9, see https://github.com/zsh-users/zsh/commit/fb9a7cc5dd07910afa7ebea174b379350cae4c91
+
+autoload -Uz incarg
+for widget in vim-{,sync-}{inc,dec}arg; do
+    zle -N "$widget" incarg
+done
+
+bindkey -a \
+'^A' vim-incarg \
+'^X' vim-decarg \
+'g^A' vim-sync-incarg \
+'g^X' vim-sync-decarg
+
 ## Following mimics the vim-surround plugin, but it is incompatible with the zsh syntax highlighting plugin{{{
 ## hence it is disabled
 
@@ -109,7 +133,11 @@ bindkey -M vicmd 'K' run-help
 # load https://github.com/agkozak/zsh-z
 source /home/aks/.zsh_plugins/zsh_z/zsh-z/zsh-z.plugin.zsh
 
-fpath=($HOME/.zsh_plugins/completions $fpath)
+fpath=(
+    # $HOME/.zsh_plugins/my-widgets # tried this, did not work
+    $HOME/.zsh_plugins/completions
+    $fpath
+)
 
 # enable completion features{{{
 autoload -Uz compinit
@@ -121,7 +149,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive tab
 # History configurations{{{
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
-SAVEHIST=2000
+SAVEHIST=20000
 setopt append_history	      # append history instead of overwrite, so that 
 			      # parallel zsh sessions can use it
  
