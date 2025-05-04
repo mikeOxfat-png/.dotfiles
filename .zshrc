@@ -322,12 +322,6 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 fi
 
-# some more ls aliases
-# alias ll='ls -l'
-alias ll='lsd -l' # use lsd for the long list format
-alias lt='lsd --tree'
-alias la='ls -A'
-alias l='ls -CF'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -351,11 +345,6 @@ if [ -f ~/.fzf.zsh_completion ]; then
     . ~/.fzf.zsh_completion
 fi
 
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 ## section copied from bashrc for alias definition
 if [ -f ~/.zsh_aliases ]; then

@@ -1,6 +1,13 @@
 # see man zshbuiltins
 alias where="whence -caS"
 
+# some more ls aliases
+# alias ll='ls -l'
+alias ll='lsd -l' # use lsd for the long list format
+alias lt='lsd --tree'
+alias la='ls -A'
+alias l='ls -CF'
+
 # makes wget save filename as recommended by the server
 alias wget="wget --content-disposition --trust-server-names"
 
