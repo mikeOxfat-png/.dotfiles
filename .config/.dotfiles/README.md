@@ -33,3 +33,16 @@ rm -r tmpdotfiles
 > [!TODO]
 > add neovim config as a submodule to this
 > read up on <https://git-scm.com/book/en/v2/Git-Tools-Submodules>
+
+
+> [!NOTE]
+> Custom shortcuts setup with gnome
+
+<kbd>Super</kbd> refers to <kbd>win</kbd> key by default
+
+| name | keybind | command |
+| ------------- | -------------- | -------------- |
+| launch kitty single instance | <kbd>Super</kbd>+<kbd>Enter</kbd> | `/usr/bin/kitty -1` |
+| windows style paste | <kbd>Super</kbd>+<kbd>V</kbd> | `/usr/bin/diodon` |
+
+To map <kbd>caps lock</kbd> to <kbd>esc</kbd>, used `gnome-tweaks` under `Keyboad & Mouse > Additional Layout Options > Caps Lock Behaviour`
