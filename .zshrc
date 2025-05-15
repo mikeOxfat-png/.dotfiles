@@ -136,6 +136,7 @@ source /home/aks/.zsh_plugins/zsh_z/zsh-z/zsh-z.plugin.zsh
 fpath=(
     # $HOME/.zsh_plugins/my-widgets # tried this, did not work
     $HOME/.zsh_plugins/completions
+    $HOME/.zsh_plugins/zsh-completions/src # taken from https://github.com/zsh-users/zsh-completions
     $fpath
 )
 

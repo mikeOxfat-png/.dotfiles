@@ -26,6 +26,12 @@ rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 ```
 
+Add this collection of zsh completion scripts 
+```
+git clone https://github.com/zsh-users/zsh-completions ~/.zsh_plugins/zsh-completions
+
+```
+
 > [!NOTE]
 > Currently not added neovim config, fetch it separately from <https://github.com/JustAnAverageGuy/kickstart.nvim>
 
