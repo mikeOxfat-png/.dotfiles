@@ -8,6 +8,10 @@ alias lt='lsd --tree'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias NUD='nvm use default'
 # makes wget save filename as recommended by the server
 alias wget="wget --content-disposition --trust-server-names"
 

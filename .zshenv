@@ -32,4 +32,5 @@ export ZSHZ_CASE="smart"
 
 # file containing sensitive env variables
 # e.g. imaginary_api_key
+# e.g. PHONE ip
 source ~/.zshsecrets

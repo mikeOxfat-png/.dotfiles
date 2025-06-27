@@ -1,4 +1,4 @@
-# vim: fdm=marker
+# vim: fdm=marker ft=zsh
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
@@ -133,7 +133,7 @@ bindkey -a \
 ###################################################}}}
 
 # load https://github.com/agkozak/zsh-z
-source /home/aks/.zsh_plugins/zsh_z/zsh-z/zsh-z.plugin.zsh
+source ~/.zsh_plugins/zsh_z/zsh-z/zsh-z.plugin.zsh
 
 fpath=(
     # $HOME/.zsh_plugins/my-widgets # tried this, did not work
@@ -355,17 +355,17 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 # >>> NVM configuration >>>
+# Add default node to path
+export PATH=~/.nvm/versions/node/v20.18.0/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 nvm(){
     unset -f nvm
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
     nvm $@ # This copies arguments after nvm
 
 }
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Hack to use default version with neovim without explicitly loading nvm, since its slow
-alias nvim='PATH="/home/aks/.nvm/versions/node/v20.18.0/bin:$PATH" nvim'
 # <<< NVM configuration <<<
 
 quote_rainbow() {
