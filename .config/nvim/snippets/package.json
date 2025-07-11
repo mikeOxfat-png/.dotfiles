@@ -1,0 +1,26 @@
+{
+    "name": "my-vscode-snippets",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": "all",
+                "path": "./ascii_art.code-snippets"
+            },
+            {
+                "language": "python",
+                "path": "./python.json"
+            },
+            {
+                "language": "cpp",
+                "path": "./cpp.json"  
+            },
+            {
+                "language": "markdown",
+                "path": "./markdown.json"
+            }
+        ]
+    }
+}

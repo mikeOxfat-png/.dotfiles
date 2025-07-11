@@ -1,0 +1,13 @@
+{
+    "spoiler": {
+        "prefix": "spoiler",
+        "body": [
+          "<details>",
+          "<summary>${1:spoiler text}</summary>",
+          "",
+          "${0:content text}",
+          "</details>"
+        ],
+        "description": "spoiler"
+      }
+}
